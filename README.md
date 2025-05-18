@@ -4,3 +4,4 @@ Contributors
 - Judith Cruz
 - Martela Nyzza Castro
 - Ronelyn Balmes
+- Daniel Gonda
