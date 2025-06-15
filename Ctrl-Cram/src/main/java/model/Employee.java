@@ -11,11 +11,13 @@ package model;
  * @author miiny
  */
 import java.util.Date;
+
+
 public class Employee {
    
     private String employeeID;
     private String name;
-    private String position;
+    private String position;    
     private String birthday;
     private String address;
     private String phone;
@@ -25,11 +27,11 @@ public class Employee {
     private String tinNumber;
     private String pagIbigNumber;
     private String philHealthNumber;
-    private final Date hireDate;
+   
     
     public Employee(String employeeID, String name, String position, String birthday, String address, 
-            String phone, String status, String supervisor, String sssNumber, String tinNumber, String pagIbigNumber, String philHealthNumber,
-            Date hireDate){
+            String phone, String status, String supervisor, String sssNumber, String tinNumber, String pagIbigNumber, String philHealthNumber
+            ){
     
         this.employeeID = employeeID;
         this.name = name;
@@ -39,7 +41,6 @@ public class Employee {
         this.phone = phone;
         this.status = status;
         this.supervisor = supervisor;
-        this.hireDate = hireDate;
         this.sssNumber = sssNumber;
         this.tinNumber = tinNumber;
         this.pagIbigNumber = pagIbigNumber;
@@ -81,7 +82,7 @@ public class Employee {
     public String getPhilHealthNumber() {return philHealthNumber;}
     public void setPhilHealthNumber(String philHealthNumber) { this.philHealthNumber = philHealthNumber; }
     
-    public Date getHireDate() {return hireDate;}
+    
     
      public void applyForLeave() {
         System.out.println(name + " is applying for leave...");
@@ -94,5 +95,7 @@ public class Employee {
     public void viewPayslip() {
         System.out.println(name + " is viewing payslip...");
     }
+
+    
 }
     

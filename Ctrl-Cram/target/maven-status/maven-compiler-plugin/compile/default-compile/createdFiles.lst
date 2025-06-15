@@ -1,5 +1,7 @@
+GUI\EmployeePanel$15.class
 model\Attendance.class
 GUI\EmployeePanel$9.class
+GUI\EmployeePanel$13.class
 model\PerformanceReview.class
 GUI\EmployeePanel$2.class
 GUI\AddEmployee$5.class
@@ -17,12 +19,15 @@ GUI\EmployeePanel$11.class
 GUI\EmployeePanel$3.class
 model\EmployeeManager.class
 model\Payroll.class
+GUI\EmployeePanel$14.class
 GUI\AddEmployee$4.class
 GUI\EmployeePanel$5.class
 GUI\AddEmployee$1.class
 model\LoanAndBenefits.class
+GUI\EmployeePanel$12.class
 GUI\EmployeePanel$10.class
 GUI\EmployeePanel$8.class
 GUI\AddEmployee$3.class
 GUI\EmployeePanel.class
+Tracker\AttendanceTracker.class
 GUI\AddEmployee$5$1.class
