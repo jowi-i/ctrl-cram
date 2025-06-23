@@ -4,8 +4,8 @@
 
 package com.mycompany.motorph;
 
-import GUI.*;
-import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
+import motorph.Login;
 
 
 /**
@@ -15,12 +15,16 @@ import javax.swing.JFrame;
 public class MotorPH {
 
     public static void main(String[] args) {     
-       JFrame frame = new JFrame("Employee Manager");
+       SwingUtilities.invokeLater(() -> {
+           Login login = new Login(); // your login window class
+            login.setVisible(true);
+        });
+        /*JFrame frame = new JFrame("Employee Manager");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(1200, 700);
+        frame.setSize(1280, 720);
         frame.setContentPane(new EmployeePanel());
         frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
+        frame.setVisible(true);*/
     
         
 }

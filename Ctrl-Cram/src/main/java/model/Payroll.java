@@ -7,30 +7,40 @@ package model;
 /**
  *
  * @author joey
+ * @author miiny
  */
 public class Payroll { 
     
-     private final String employeeId;
+    private final String employeeId;
     private final double basicSalary;
-    private final double bonus;
-    private final double deductions;
+    private final double hourlyRate;
 
-    public Payroll(String employeeId, double basicSalary, double bonus, double deductions) {
+    public Payroll(String employeeId, double basicSalary, double hourlyRate) {
         this.employeeId = employeeId;
         this.basicSalary = basicSalary;
-        this.bonus = bonus;
-        this.deductions = deductions;
+        this.hourlyRate = hourlyRate;
+    }
+    public String getEmployeeId() { 
+        return employeeId; 
+    }
+    public double getBasicSalary() {
+        return basicSalary; 
+    }
+    public double getHourlyRate() {
+        return hourlyRate; 
+    }
+    public double calculateGrossPay(int hoursWorked) {
+        return hoursWorked * hourlyRate;
+    }
+     public double calculateDeductions(double grossPay) {
+        double sss = grossPay * 0.15;
+        double philHealth = grossPay * 0.05;
+        double pagIbig = grossPay * 0.02;
+        return sss + philHealth + pagIbig;
     }
 
-    public double calculateNetSalary() {
-        return basicSalary + bonus - deductions;
-    }
-
-    @Override
-    public String toString() {
-        return "Employee ID: " + employeeId +
-               ", Net Salary: Php" + String.format("%.2f", calculateNetSalary());
+    public double calculateNetPay(int hoursWorked) {
+        double gross = calculateGrossPay(hoursWorked);
+        return gross - calculateDeductions(gross);
     }
 }
-    
-

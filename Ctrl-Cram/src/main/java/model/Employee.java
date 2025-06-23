@@ -10,7 +10,6 @@ package model;
  *
  * @author miiny
  */
-import java.util.Date;
 
 
 public class Employee {
@@ -27,11 +26,15 @@ public class Employee {
     private String tinNumber;
     private String pagIbigNumber;
     private String philHealthNumber;
+    private double basicSalary;
+    private double hourlyRate;
+
+    
+   
    
     
     public Employee(String employeeID, String name, String position, String birthday, String address, 
-            String phone, String status, String supervisor, String sssNumber, String tinNumber, String pagIbigNumber, String philHealthNumber
-            ){
+            String phone, String status, String supervisor, String sssNumber, String tinNumber, String pagIbigNumber, String philHealthNumber){
     
         this.employeeID = employeeID;
         this.name = name;
@@ -44,11 +47,14 @@ public class Employee {
         this.sssNumber = sssNumber;
         this.tinNumber = tinNumber;
         this.pagIbigNumber = pagIbigNumber;
-        this.philHealthNumber = philHealthNumber;}
+        this.philHealthNumber = philHealthNumber;
+
+    }
     
-    public String getEmployeeByID() { return employeeID; }
-    public void setEmployeeByID(String employeeID) {this.employeeID = employeeID;}
-    
+    public String getEmployeeByID() { return employeeID; 
+    }
+    public void setEmployeeByID(String employeeID) {this.employeeID = employeeID;
+    }
     public String getName() { return name; }
     public void setName(String name) {this.name = name;}
      
@@ -82,7 +88,23 @@ public class Employee {
     public String getPhilHealthNumber() {return philHealthNumber;}
     public void setPhilHealthNumber(String philHealthNumber) { this.philHealthNumber = philHealthNumber; }
     
-    
+    public double getBasicSalary() {
+    return basicSalary;
+}
+
+    public double getHourlyRate() {
+    return hourlyRate;
+}
+
+    public void setBasicSalary(double basicSalary) {
+    this.basicSalary = basicSalary;
+}
+
+    public void setHourlyRate(double hourlyRate) {
+    this.hourlyRate = hourlyRate;
+}
+
+
     
      public void applyForLeave() {
         System.out.println(name + " is applying for leave...");

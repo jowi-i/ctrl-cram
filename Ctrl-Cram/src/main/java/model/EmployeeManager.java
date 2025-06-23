@@ -20,8 +20,8 @@ import java.util.List;
 
 public class EmployeeManager {
     
-     private static ArrayList<Employee> employeeList = new ArrayList<>();
-    private List<Attendance> allAttendances = new ArrayList<>();
+     private static final ArrayList<Employee> employeeList = new ArrayList<>();
+    private final List<Attendance> allAttendances = new ArrayList<>();
    
     
     
@@ -97,7 +97,7 @@ public class EmployeeManager {
                 records.add(att);
             }
         }
-
+        System.out.println("Found " + records.size() + " records for EmpID " + employeeID + " in " + selectedMonth + "/" + selectedYear);
         return records;
     }
 
@@ -117,7 +117,7 @@ public class EmployeeManager {
             while ((line = reader.readNext()) != null) {
                 if (line.length < 5) continue;
 
-            String employeeId = line[0];
+            String employeeId = line[0].trim();
             LocalDate date = LocalDate.parse(line[2], dateFormatter);
             LocalTime logIn = LocalTime.parse(line[3], timeFormatter);
             LocalTime logOut = LocalTime.parse(line[4], timeFormatter);
@@ -125,10 +125,61 @@ public class EmployeeManager {
                 Attendance att = new Attendance(employeeId, date, logIn, logOut, "Present", true, false);
 
                 allAttendances.add(att);
-            }
+}
+ for (Attendance att : allAttendances) {
+    if (att.getEmployeeId().trim().equals("10001")) {
+        System.out.println("Attendance found for 10001 on date: " + att.getDate());
+    }
+}
+               
+            
+            //Debug
             System.out.println("Loaded attendance records: " + allAttendances.size());
+            System.out.println("Total attendances loaded: " + allAttendances.size());
         } catch (IOException e) {
            
 }
+ }
+        public boolean isEmployeeNumberExists(String empNo) {
+    for (Employee e : employeeList) {
+        if (e.getEmployeeByID().equals(empNo)) {
+            return true;
+        }
+    }
+    return false;
 }
+
+        private final List<Payroll> allPayrolls = new ArrayList<>();
+
+public void loadPayrollDataFromCSV() {
+    
+    String csvFile = "CSV/salary.csv";
+
+    try (CSVReader reader = new CSVReader(new FileReader(csvFile))) {
+        String[] line;
+
+        while ((line = reader.readNext()) != null) {
+            String empId = line[0];
+            double basicSalary = Double.parseDouble(line[1]);
+            double hourlyRate = Double.parseDouble(line[2]);
+
+            Employee emp = getEmployeeByID(empId);
+            if (emp != null) {
+                emp.setBasicSalary(basicSalary);
+                emp.setHourlyRate(hourlyRate);
+            }
+        }
+    } catch (IOException | NumberFormatException e) {
+    }
+}
+public Payroll getPayrollForEmployee(String empId) {
+    for (Payroll p : allPayrolls) {
+        if (p.getEmployeeId().equals(empId)) {
+            return p;
+        }
+    }
+    return null;
+}
+
+
 }
